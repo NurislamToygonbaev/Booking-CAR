@@ -31,6 +31,8 @@ public class Management {
                         user1.setMoney(newBalance);
                         System.out.println("you have successfully made the payment. remaining balance: " + " $" + user1.getMoney());
                         System.out.println("you have successfully booked a car. she is at your service!!!");
+                        System.out.println("your Driver: " + car.getDriver());
+                        car.getDriver().getInfo();
                     } else {
                         Bank.leon(user1);
                     }
