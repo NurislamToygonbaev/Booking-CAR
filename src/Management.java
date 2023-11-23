@@ -32,20 +32,7 @@ public class Management {
                         System.out.println("you have successfully made the payment. remaining balance: " + " $" + user1.getMoney());
                         System.out.println("you have successfully booked a car. she is at your service!!!");
                     } else {
-                        Scanner scanner = new Scanner(System.in);
-                        System.out.println("unfortunately, there is not enough money in your account");
-                        System.out.println("payment failed, there are not enough funds in the account");
-                        System.out.print("do you want to take out a loan (yes/no)? ");
-                        String leon = scanner.nextLine();
-                        if (leon.equalsIgnoreCase("yes")) {
-                            System.out.print("deposit amount: $");
-                            long amount = scanner.nextLong();
-                            amount += user1.getMoney();
-                            user1.setMoney(amount);
-                            System.out.println("you have successfully deposited money to the bank account, current balance $" + user1.getMoney());
-                        } else {
-                            break;
-                        }
+                        Bank.leon(user1);
                     }
                 }
             }

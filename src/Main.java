@@ -5,7 +5,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Scanner scanForNum = new Scanner(System.in);
         User[] users = new User[0];
-        User user = new User();
+        User user = null;
         Management management = new Management();
         boolean isTrue = true;
         while (isTrue){

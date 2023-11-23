@@ -57,7 +57,7 @@ public class User {
         this.money = money;
     }
 
-    public static User []  registration(User [] users, User user){
+    public static User[]  registration(User[] users, User user){
         Scanner scanner = new Scanner(System.in);
         while (true){
             System.out.print("Enter full name: ");
