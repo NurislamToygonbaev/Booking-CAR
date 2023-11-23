@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Management {
+public class Management implements ManagentInterface{
 
 
     Cars bmw = new Cars("BMW", "M5", 1500, Driver.URMAT, true, 1);
@@ -17,7 +17,7 @@ public class Management {
 
     Cars[] cars = new Cars[]{bmw, mers, subaru, toyota, honda, hyundai, hondaFit, lexus, ferrari, porsche};
 
-
+    @Override
     public void booking(User user1, int scanId) {
         for (Cars car : cars) {
             if (car.getId() == scanId) {
@@ -41,6 +41,7 @@ public class Management {
         }
     }
 
+    @Override
     public void menuInner() {
         System.out.println(STR. """
                 AVAILABLE CARS
