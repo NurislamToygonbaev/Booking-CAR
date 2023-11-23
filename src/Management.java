@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Management implements ManagentInterface{
+public class Management implements ManagementInterface{
 
 
     Cars bmw = new Cars("BMW", "M5", 1500, Driver.URMAT, true, 1);
