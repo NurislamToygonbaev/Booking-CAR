@@ -106,7 +106,7 @@ public class User {
                 user.setMoney(scanFOrNum.nextLong());
                 if (user.getMoney() >= 500) break;
                 else System.err.println("make a payment of more than 500");
-            } catch (InputMismatchException e){
+            } catch (Exception e){
                 System.err.println("Invalid input. Please enter a valid integer.");
                 scanFOrNum.nextLine();
             }

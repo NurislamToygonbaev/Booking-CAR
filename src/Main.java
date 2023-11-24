@@ -43,7 +43,7 @@ public class Main {
                     case 3 -> isTrue = false;
                     default -> System.err.println("Enter right choice!");
                 }
-            } catch (InputMismatchException e){
+            } catch (Exception e){
                 System.err.println("Invalid input. Please enter a valid integer.");
                 scanForNum.nextLine();
             }

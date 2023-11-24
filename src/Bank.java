@@ -19,7 +19,7 @@ public class Bank {
             } else {
                 System.out.println("Return to the main menu...");
             }
-        } catch (InputMismatchException e) {
+        } catch (Exception e) {
             System.err.println("Invalid input. Please enter a valid integer.");
             scanner.nextLine();
         }
