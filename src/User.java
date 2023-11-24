@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class User {
@@ -68,6 +69,7 @@ public class User {
 
     public static User[] registration(User[] users, User user){
         Scanner scanner = new Scanner(System.in);
+        Scanner scanFOrNum = new Scanner(System.in);
         while (true){
             System.out.print("Enter full name: ");
             user.setFullName(scanner.nextLine());
@@ -99,10 +101,15 @@ public class User {
             else System.err.println("The phone number must start with +996 and consist of 13 digits");
         }
         while (true){
-            System.out.print("Make payments to the account: $");
-            user.setMoney(new Scanner(System.in).nextLong());
-            if (user.getMoney() >= 500) break;
-            else System.err.println("make a payment of more than 500");
+            try {
+                System.out.print("Make payments to the account: $");
+                user.setMoney(scanFOrNum.nextLong());
+                if (user.getMoney() >= 500) break;
+                else System.err.println("make a payment of more than 500");
+            } catch (InputMismatchException e){
+                System.err.println("Invalid input. Please enter a valid integer.");
+                scanFOrNum.nextLine();
+            }
         }
         users = Arrays.copyOf(users, users.length +1);
         users[users.length - 1] = user;
