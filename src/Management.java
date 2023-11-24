@@ -18,7 +18,7 @@ public class Management implements ManagementInterface{
     Cars[] cars = new Cars[]{bmw, mers, subaru, toyota, honda, hyundai, hondaFit, lexus, ferrari, porsche};
 
     @Override
-    public void booking(User user1, int scanId) {
+    public Cars[] booking(User user1, int scanId) {
         for (Cars car : cars) {
             if (car.getId() == scanId) {
                 if (!car.isBooking()) {
@@ -33,12 +33,15 @@ public class Management implements ManagementInterface{
                         System.out.println("you have successfully booked a car. she is at your service!!!");
                         System.out.println("your Driver: " + car.getDriver());
                         car.getDriver().getInfo();
+                        user1.cars = Arrays.copyOf(user1.cars, user1.cars.length +1);
+                        user1.cars[user1.cars.length -1] = car;
                     } else {
                         Bank.leon(user1);
                     }
                 }
             }
         }
+        return user1.getCars();
     }
 
     @Override
@@ -55,6 +58,7 @@ public class Management implements ManagementInterface{
                 8.  \{ lexus }
                 9.  \{ ferrari }
                 10. \{ porsche }
+                11. my reserved cars
 
                 """ );
         System.out.print("YOUR CHOICE: (0 to the exit): ");

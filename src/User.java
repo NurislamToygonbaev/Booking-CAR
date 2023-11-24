@@ -8,6 +8,7 @@ public class User {
     private String address;
     private String phoneNumber;
     private long money;
+    protected Cars[] cars = new Cars[0];
 
     public String getFullName() {
         return fullName;
@@ -57,13 +58,21 @@ public class User {
         this.money = money;
     }
 
-    public static User[]  registration(User[] users, User user){
+    public Cars[] getCars() {
+        return cars;
+    }
+
+    public void setCars(Cars[] cars) {
+        this.cars = cars;
+    }
+
+    public static User[] registration(User[] users, User user){
         Scanner scanner = new Scanner(System.in);
         while (true){
             System.out.print("Enter full name: ");
             user.setFullName(scanner.nextLine());
             if (!user.getFullName().isEmpty()) break;
-            else System.err.println("Write full name");
+            else System.err.println("Full name cannot be empty. Please try again.");
         }
         while (true){
             System.out.print("Enter E-Mail: ");
@@ -81,22 +90,19 @@ public class User {
             System.out.print("Enter Address: ");
             user.setAddress(scanner.nextLine());
             if (!user.getAddress().isEmpty()) break;
-            else System.err.println("Write address");
+            else System.err.println("Address cannot be empty. Please try again.");
         }
         while (true){
             System.out.print("Enter phone number: ");
             user.setPhoneNumber(scanner.nextLine());
-            if (!user.getPhoneNumber().isEmpty()) break;
-            else System.err.println("Write phone number");
+            if (user.getPhoneNumber().startsWith("+996")) break;
+            else System.err.println("Phone number need start with +996");
         }
         while (true){
             System.out.print("Make payments to the account: $");
-            long summ = new Scanner(System.in).nextLong();
-            if (summ >= 200) {
-                user.setMoney(summ);
-                break;
-            }
-            else System.err.println("make a payment of more than 200");
+            user.setMoney(new Scanner(System.in).nextLong());
+            if (user.getMoney() >= 500) break;
+            else System.err.println("make a payment of more than 500");
         }
         users = Arrays.copyOf(users, users.length +1);
         users[users.length - 1] = user;
