@@ -95,8 +95,8 @@ public class User {
         while (true){
             System.out.print("Enter phone number: ");
             user.setPhoneNumber(scanner.nextLine());
-            if (user.getPhoneNumber().startsWith("+996")) break;
-            else System.err.println("Phone number need start with +996");
+            if (user.getPhoneNumber().startsWith("+996") && user.getPhoneNumber().length() == 13) break;
+            else System.err.println("The phone number must start with +996 and consist of 13 digits");
         }
         while (true){
             System.out.print("Make payments to the account: $");
